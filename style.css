@@ -450,6 +450,7 @@ em { color: var(--green); font-style: normal; }
 }
 
 @media (max-width: 620px) {
+  .top-bar { display: none; }
   .top-contacts { justify-content: center; gap: .2rem .8rem; }
   .hero {
     --hero-position: 62% center;
@@ -461,8 +462,7 @@ em { color: var(--green); font-style: normal; }
   .hero h1 { max-width: 16ch; }
   .about-grid, .contact-grid, .form-grid, .form-grid fieldset, .footer-grid { grid-template-columns: minmax(0, 1fr); }
   .credibility-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .credibility-list li:nth-child(4) { border-left: 1px solid #cbd8dd; }
-  .credibility-list li:nth-child(odd) { border-left: 0; }
+  .credibility-list li:nth-child(n) { border-left: 0; }
   .about-grid { padding-block: 1rem; gap: .9rem; }
   .about-grid img { height: auto; min-height: 0; aspect-ratio: 16 / 9; border-radius: var(--radius); }
   .about-copy { padding-block: .35rem .65rem; }
