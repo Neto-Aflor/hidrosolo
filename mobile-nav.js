@@ -1,9 +1,10 @@
 const menuButton = document.querySelector(".menu-toggle");
 const menu = document.getElementById("menu-principal");
-const mobile = window.matchMedia("(max-width: 850px)");
+const mobile = window.matchMedia("(max-width: 767px)");
 
 function setMenuOpen(open) {
   menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   menu.hidden = mobile.matches && !open;
 }
 
@@ -27,7 +28,9 @@ menu.addEventListener("click", (event) => {
   if (!link || !mobile.matches) return;
 
   setMenuOpen(false);
-  const section = document.getElementById(link.hash.slice(1));
+  const section = link.origin === window.location.origin && link.pathname === window.location.pathname
+    ? document.getElementById(link.hash.slice(1))
+    : null;
   if (section) {
     section.setAttribute("tabindex", "-1");
     section.focus({ preventScroll: true });
